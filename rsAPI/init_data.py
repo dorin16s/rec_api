@@ -141,10 +141,10 @@ def init():
     global list_id_movies
     global item_vector
 
-    df2 = pd.read_csv("data_new/meta_data_4852.csv")
-    df1 = pd.read_csv("data_new/credits.csv")
-    df3 = pd.read_csv("data_new/keywords.csv")
-    item_vector = pd.read_csv("data_new/MF_Model/item_vector.csv")
+    df2 = pd.read_csv("static/meta_data_4852.csv")
+    df1 = pd.read_csv("static/credits.csv")
+    df3 = pd.read_csv("static/keywords.csv")
+    item_vector = pd.read_csv("static/MF_Model/item_vector.csv")
     item_vector['numpy_vec']=item_vector.vector.apply(lambda x: np.fromstring(x, dtype=np.float ,sep=','))
 
 	#dorin:change
@@ -152,7 +152,7 @@ def init():
     #list_id_movies = ratings['id'].unique()
     #print(len(list_id_movies))
 	
-    moviesLink = pd.read_csv(r'data_new\item2id.csv', header=None,names=['origId', 'newId'])
+    moviesLink = pd.read_csv(r'static\item2id.csv', header=None,names=['origId', 'newId'])
     list_id_movies = moviesLink['origId'].to_list()
 	
 	

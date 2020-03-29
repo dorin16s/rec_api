@@ -260,12 +260,12 @@ def user_data(tp_tr,moviesLink,n_items):
 
 def get_AE_top(data,k):
     unique_sid = list()
-    with open(r'data_new\unique_sid.txt', 'r') as f:
+    with open(r'static\unique_sid.txt', 'r') as f:
         for line in f:
             unique_sid.append(line.strip())
     n_items = len(unique_sid)
         
-    moviesLink = pd.read_csv(r'data_new\item2id.csv', header=None,names=['origId', 'newId'])
+    moviesLink = pd.read_csv(r'static\item2id.csv', header=None,names=['origId', 'newId'])
     train_data = user_data(data,moviesLink,n_items)
     
     p_dims = [200, 600, n_items]
@@ -275,7 +275,7 @@ def get_AE_top(data,k):
     
     
     with tf.Session() as sess:
-        saver.restore(sess, '{}/model'.format(r'data_new\AE_Model'))
+        saver.restore(sess, '{}/model'.format(r'static\AE_Model'))
         X = train_data
         if sparse.isspmatrix(X):
              X = X.toarray()
