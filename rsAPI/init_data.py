@@ -152,7 +152,7 @@ def init():
     #list_id_movies = ratings['id'].unique()
     #print(len(list_id_movies))
 	
-    moviesLink = pd.read_csv(r'static\item2id.csv', header=None,names=['origId', 'newId'])
+    moviesLink = pd.read_csv('static\item2id.csv', header=None,names=['origId', 'newId'])
     list_id_movies = moviesLink['origId'].to_list()
 	
 	
