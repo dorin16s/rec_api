@@ -122,4 +122,4 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'rs/static'),
 )
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
